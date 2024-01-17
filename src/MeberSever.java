@@ -20,18 +20,21 @@ public class MeberSever {
          MeberDTO old = null;
 
          for (int i = 0; i < meberList.size(); i++) {
-             if(meberList.get(i).getName() == uqdateMeber.getName()){
+             if(meberList.get(i).getId() == uqdateMeber.getId()){
                  old = meberList.set(i, uqdateMeber);
+
              }
          }
          return old != null;
      }
 
-     public boolean removerMeber(String name){
+     /* 회원정보 삭제*/
+     public boolean removerMeber(int id){
+
          MeberDTO old = null;
 
          for (int i = 0; i < meberList.size(); i++) {
-             if(meberList.get(i).getName() == name){
+             if(meberList.get(i).getId() == id) {
                  old = meberList.remove(i);
              }
          }

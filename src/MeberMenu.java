@@ -70,15 +70,18 @@ public class MeberMenu {
 
     public void updateMember(){
         System.out.println("====== 회원 정보 수정 ========");
-        System.out.print("수정할 회원의 이름 :");
-        String name = sc.nextLine();
+        System.out.print("수정할 회원의 번호 : ");
+        int id = sc.nextInt();
         sc.nextLine();
+        System.out.print("수정할 회원의 이름 : ");
+        String uqdatename = sc.nextLine();
         System.out.print("수정할 회원의 나이 : ");
         int uqdateAge = sc.nextInt();
+        sc.nextLine();
         System.out.print("수정할 회원의 핸드폰번호 : ");
-        String uqdatePphone = sc.nextLine();
+        String uqdatePhone = sc.nextLine();
 
-        MeberDTO uqdatemeber = new MeberDTO(name, uqdateAge, uqdatePphone);
+        MeberDTO uqdatemeber = new MeberDTO(id, uqdatename, uqdateAge, uqdatePhone);
 
         if (meberSever.uqdateMeber(uqdatemeber)){
             System.out.println("수정되었습니다. ");
@@ -88,9 +91,9 @@ public class MeberMenu {
     }
 
     public void deleteMember(){
-        System.out.println("==== 곡 삭제 ====");
-        System.out.println("삭제할 이름의 name : ");
-        if (meberSever.removerMeber(sc.nextLine())){
+        System.out.println("==== 회원 삭제 ====");
+        System.out.print("삭제할 이름의 id : ");
+        if (meberSever.removerMeber(sc.nextInt())) {
             System.out.println(" 삭제 되었습니다.");
         } else {
             System.out.println(" 삭제되지 않았습니다. ");
